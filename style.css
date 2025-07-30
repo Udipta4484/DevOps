@@ -1,0 +1,287 @@
+/* Basic Resets & Font Import */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background-image: url('desk-workspace-with-various-elements.jpg'); /* Your background image */
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Keeps the background static while content scrolls */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align to top for better scrolling */
+    min-height: 100vh;
+    padding: 40px 20px; /* More padding around the container */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+
+    /* Initial state for smooth opening animation */
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Animation trigger class - added by JavaScript */
+body.loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Main Container Styling */
+.container {
+    background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent white background */
+    padding: 40px;
+    border-radius: 15px; /* More rounded corners */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+    width: 100%;
+    max-width: 900px; /* Wider for better content display */
+    backdrop-filter: blur(5px); /* Subtle blur effect on elements behind it */
+    -webkit-backdrop-filter: blur(5px); /* For Safari */
+}
+
+/* --- NEW STYLES FOR LOGO & TITLE --- */
+.header-title-area {
+    display: flex; /* Use flexbox for horizontal alignment */
+    align-items: center; /* Vertically align items in the center */
+    justify-content: center; /* Center the logo and title horizontally */
+    margin-bottom: 20px; /* Space below the entire header title area */
+    gap: 15px; /* Space between the logo and the title */
+}
+
+.header-logo {
+    width: 80px; /* Increased logo width */
+    height: 80px; /* Increased logo height */
+    object-fit: contain; /* Ensures the whole image is visible within the bounds */
+    border-radius: 50%; /* Make it round if it suits the design */
+    border: 3px solid black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Adjusted h1 rule - now specific to the h1 inside header-title-area */
+.header-title-area h1 {
+    margin-bottom: 0; /* Remove margin-bottom as gap handles spacing */
+    /* Other h1 styles from original h1 rule are kept below for .header-title-area h1 */
+    text-align: center; /* Keep text-align center, but flexbox handles horizontal position */
+    color: #2c3e50; /* Darker blue/grey for headings */
+    font-size: 2.8em;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+h1 { 
+    margin-bottom: 10px; /* This margin-bottom is kept for any other H1s outside the header-title-area */
+}
+
+
+.tagline {
+    text-align: center;
+    color: #7f8c8d; /* Muted grey for tagline */
+    font-size: 1.1em;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+h2 {
+    text-align: center;
+    color: #34495e;
+    margin-top: 40px;
+    margin-bottom: 25px;
+    font-size: 2em;
+    border-bottom: 2px solid #ecf0f1; /* Subtle separator */
+    padding-bottom: 10px;
+}
+
+/* Form Section Styling */
+.new-post-section {
+    background-color: #ecf0f1; /* Light grey background for form */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05); /* Inner shadow */
+    margin-bottom: 40px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* More space between form elements */
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: 600;
+    color: #34495e;
+    margin-bottom: 8px;
+    font-size: 1.1em;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    padding: 15px;
+    border: 1px solid #bdc3c7; /* Lighter border */
+    border-radius: 8px; /* More rounded inputs */
+    font-size: 1em;
+    width: 100%;
+    background-color: #ffffff; /* White input background */
+    color: #333;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+textarea::placeholder {
+    color: #a9b0b6; /* Lighter placeholder text */
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    border-color: #3498db; /* Blue highlight on focus */
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.3); /* Soft blue glow */
+}
+
+textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+button {
+    background-color: #27ae60; /* Professional green */
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px rgba(39, 174, 96, 0.3); /* Green shadow */
+    align-self: center; /* Center the button */
+    width: 60%; /* Make button a bit narrower */
+    max-width: 300px;
+}
+
+button:hover {
+    background-color: #229954; /* Darker green on hover */
+    transform: translateY(-3px); /* Slight lift */
+    box-shadow: 0 8px 20px rgba(39, 174, 96, 0.4); /* More intense shadow on hover */
+}
+
+button:active {
+    transform: translateY(0); /* Press effect */
+    box-shadow: 0 2px 8px rgba(39, 174, 96, 0.2);
+}
+
+/* Blog Post List Styling */
+.recent-posts-section {
+    padding-top: 20px;
+}
+
+#blogPostList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Responsive grid layout */
+    gap: 30px; /* Space between grid items */
+}
+
+.blog-post {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Pushes date to bottom */
+}
+
+.blog-post:hover {
+    transform: translateY(-5px); /* Lift on hover */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.blog-post h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #3498db; /* Blue for blog titles */
+    font-size: 1.6em;
+    font-weight: 600;
+    border-bottom: 1px solid #ecf0f1; /* Lighter separator */
+    padding-bottom: 8px;
+}
+
+.blog-post .author-info {
+    font-size: 0.95em;
+    color: #7f8c8d;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.blog-post p {
+    margin-top: 0;
+    line-height: 1.7;
+    color: #333;
+    white-space: pre-wrap; /* Preserves whitespace and line breaks */
+    flex-grow: 1; /* Allows content to take up available space */
+}
+
+.blog-post .post-date {
+    font-size: 0.85em;
+    color: #95a5a6; /* Even lighter grey */
+    text-align: right;
+    margin-top: 20px; /* More space from content */
+    padding-top: 10px;
+    border-top: 1px dashed #ecf0f1; /* Dashed separator */
+}
+
+.no-posts-message {
+    text-align: center;
+    color: #7f8c8d;
+    padding: 30px;
+    border: 2px dashed #bdc3c7;
+    border-radius: 8px;
+    font-size: 1.2em;
+    margin-top: 20px;
+    grid-column: 1 / -1; /* Make it span all columns in the grid */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 25px;
+    }
+
+    /* Adjust header for smaller screens */
+    .header-title-area {
+        flex-direction: column; /* Stack logo and title vertically */
+        gap: 10px;
+    }
+
+    h1 {
+        font-size: 2.2em;
+        margin-bottom: 0; /* Ensure no extra margin */
+    }
+
+    h2 {
+        font-size: 1.6em;
+    }
+
+    button {
+        width: 80%;
+    }
+
+    #blogPostList {
+        grid-template-columns: 1fr; /* Single column on smaller screens */
+    }
+}

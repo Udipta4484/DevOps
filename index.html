@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InkDrop Blogs - Share Your Thoughts</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="inkdrop_logo.jpg" type="image/jpeg"> 
+</head>
+<body>
+    <div class="container">
+        <div class="header-title-area">
+            <img src="inkdrop_logo.png" alt="InkDrop Blogs Logo" class="header-logo">
+            <h1> InkDrop Blogs 🖋️</h1>
+        </div>
+        
+        <p class="tagline">Where every thought finds its canvas. Share your stories!</p>
+
+        <section class="new-post-section">
+            <h2>✨ Create New Blog Post ✨</h2>
+            <form id="blogPostForm">
+                <div class="input-group">
+                    <label for="authorName">Your Name:</label>
+                    <input type="text" id="authorName" placeholder="e.g., John Doe" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="authorEmail">Your Email:</label>
+                    <input type="email" id="authorEmail" placeholder="e.g., John@example.com" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="blogTitle">Blog Title:</label>
+                    <input type="text" id="blogTitle" placeholder="e.g., My Journey into DevOps" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="blogContent">Blog Content:</label>
+                    <textarea id="blogContent" rows="12" placeholder="Start writing your amazing blog post here..." required></textarea>
+                </div>
+
+                <button type="submit">🚀 Publish Blog Post</button>
+            </form>
+        </section>
+
+        <section class="recent-posts-section">
+            <h2>📚 Recent Blog Posts 📚</h2>
+            <div id="blogPostList">
+                </div>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
